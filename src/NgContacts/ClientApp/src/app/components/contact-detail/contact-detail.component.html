@@ -1,0 +1,24 @@
+<div class="contact-detail">
+  <div *ngIf="contact != null; else nocontact">
+    <h2 class="text-primary">{{contact.fullName}}</h2>
+
+    <div class="row">
+      <div class="col-md-3"><span class="glyphicon glyphicon-envelope"></span> E-mail</div><div class="col-md-9">{{contact.emailAddress}}</div>
+    </div><div class="row">
+      <div class="col-md-3"><span class="glyphicon glyphicon-phone"></span> Phone</div><div class="col-md-9">{{contact.phone}}</div>
+    </div><div class="row">
+      <div class="col-md-3"><span class="glyphicon glyphicon-home"></span> Address</div><div class="col-md-9">{{contact.street}}<br />{{contact.city}} {{contact.state}} {{contact.zipCode}}</div>
+    </div><div class="row">
+      <div class="col-md-3"><span class="glyphicon glyphicon-calendar"></span> Date of Birth</div><div class="col-md-9">{{contact.dob}}</div>
+    </div><div class="row">
+      <div class="col-md-3"><span class="glyphicon glyphicon-inbox"></span> Company</div><div class="col-md-9">{{contact.company}}</div>
+    </div><div class="row">
+      <div class="col-md-3"><span class="glyphicon glyphicon-user"></span> Job Title</div><div class="col-md-9">{{contact.jobTitle}}</div>
+
+    </div>
+    <div class="img-thumbnail" style="height:300px; width:300px; background: url(/images/pexels-photo-1102341.jpeg);background-repeat: no-repeat;background-size:cover;"></div>
+  </div>
+  <ng-template #nocontact>
+    Please choose a contact.
+  </ng-template>
+</div>

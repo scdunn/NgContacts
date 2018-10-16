@@ -1,0 +1,141 @@
+<div class="contact-detail">
+  <div *ngIf="contact != null; else nocontact" class="card">
+    <div class="card-header"><h1>{{contact.fullName}}</h1></div>
+    <div class="card-body">
+      <form novalidate
+            [formGroup]="contactForm"
+            (ngSubmit)="onSubmit()">
+
+        <button type="button" (click)="onEdit()" class="btn btn-primary" *ngIf="!isEdit">{{appConfigService.getText("EDIT")}}</button>
+        <button type="button" (click)="onCancel()" class="btn btn-primary" *ngIf="isEdit">{{appConfigService.getText("CANCEL")}}</button>
+        <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="contactForm.invalid || contactForm.pristine">{{appConfigService.getText("SUBMIT")}}</button>
+
+
+        <div class="alert alert-success fixed-top text-center" *ngIf="isSaved==true"><h5>{{appConfigService.getText("CONTACTSAVED")}}</h5></div>
+        <div class="row">
+          <div class="form-group col col-md-6">
+            <label>{{appConfigService.getText("FIRSTNAME")}}</label>
+            <input type="text" class="form-control" formControlName="firstName" [ngClass]="{
+          'is-invalid': firstName.invalid && firstName.dirty,
+          'is-valid': firstName.valid && firstName.dirty
+        }" [readonly]="!isEdit">
+            <div class="invalid-feedback">
+              {{appConfigService.getText("INVALID_REQUIRED")}}
+            </div>
+          </div>
+          <div class="form-group col col-md-6">
+            <label>{{appConfigService.getText("LASTNAME")}}</label>
+            <input type="text" class="form-control" formControlName="lastName" [ngClass]="{
+          'is-invalid': lastName.invalid && lastName.dirty,
+          'is-valid': lastName.valid && lastName.dirty
+        }" [readonly]="!isEdit">
+            <div class="invalid-feedback">
+              {{appConfigService.getText("INVALID_REQUIRED")}}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col col-md-6">
+            <label>{{appConfigService.getText("EMAIL")}}</label>
+            <input type="text" class="form-control" formControlName="emailAddress" [ngClass]="{
+          'is-invalid': emailAddress.invalid && emailAddress.dirty,
+          'is-valid': emailAddress.valid && emailAddress.dirty
+        }" [readonly]="!isEdit">
+            <div class="form-text">
+              Ex: user@domain.com
+            </div>
+            <div class="invalid-feedback">
+              Required and valid e-mail address.
+            </div>
+          </div>
+
+          <div class="form-group col col-md-6">
+            <label>{{appConfigService.getText("PHONE")}}</label>
+            <input type="text" class="form-control" formControlName="phone" [ngClass]="{
+          'is-invalid': phone.invalid && phone.dirty,
+          'is-valid': phone.valid && phone.dirty
+        }" [readonly]="!isEdit">
+            <div class="form-text">Format: xxx-xxx-xxxx</div>
+            <div class="invalid-feedback">
+              {{appConfigService.getText("INVALID_REQUIRED")}}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col col-md-6">
+            <label>{{appConfigService.getText("COMPANY")}}</label>
+            <input type="text" class="form-control" formControlName="company" [ngClass]="{
+          'is-invalid': company.invalid && company.dirty,
+          'is-valid': company.valid && company.dirty
+        }" [readonly]="!isEdit">
+            <div class="invalid-feedback">
+              {{appConfigService.getText("INVALID_REQUIRED")}}
+            </div>
+          </div>
+          <div class="form-group col col-md-6">
+            <label>{{appConfigService.getText("JOBTITLE")}}</label>
+            <input type="text" class="form-control" formControlName="jobTitle" [ngClass]="{
+          'is-invalid': jobTitle.invalid && jobTitle.dirty,
+          'is-valid': jobTitle.valid && jobTitle.dirty
+        }" [readonly]="!isEdit">
+            <div class="invalid-feedback">
+              {{appConfigService.getText("INVALID_REQUIRED")}}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>{{appConfigService.getText("STREET")}}</label>
+          <input type="text" class="form-control" formControlName="street" [ngClass]="{
+          'is-invalid': street.invalid && street.dirty,
+          'is-valid': street.valid && street.dirty
+        }" [readonly]="!isEdit">
+          <div class="invalid-feedback">
+            {{appConfigService.getText("INVALID_REQUIRED")}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col col-md-4">
+            <label>{{appConfigService.getText("CITY")}}</label>
+            <input type="text" class="form-control" formControlName="city" [ngClass]="{
+          'is-invalid': city.invalid && city.dirty,
+          'is-valid': city.valid && city.dirty
+        }" [readonly]="!isEdit">
+            <div class="invalid-feedback">
+              {{appConfigService.getText("INVALID_REQUIRED")}}
+            </div>
+          </div>
+
+          <div class="form-group col col-md-4">
+            <label>{{appConfigService.getText("STATE")}}</label>
+            <input type="text" class="form-control" formControlName="state" [ngClass]="{
+          'is-invalid': state.invalid && state.dirty,
+          'is-valid': state.valid && state.dirty
+        }" [readonly]="!isEdit">
+            <div class="invalid-feedback">
+              {{appConfigService.getText("INVALID_REQUIRED")}}
+            </div>
+          </div>
+
+          <div class="form-group col col-md-4">
+            <label>{{appConfigService.getText("ZIPCODE")}}</label>
+            <input type="text" class="form-control" formControlName="zipCode" [ngClass]="{
+          'is-invalid': zipCode.invalid && zipCode.dirty,
+          'is-valid': zipCode.valid && zipCode.dirty
+        }" [readonly]="!isEdit">
+            <div class="invalid-feedback">
+              {{appConfigService.getText("INVALID_REQUIRED")}}
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    
+  </div>
+  <ng-template #nocontact>
+    {{appConfigService.getText("CHOOSECONTACT")}}
+  </ng-template>
+</div>

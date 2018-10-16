@@ -1,0 +1,27 @@
+<div *ngIf="appConfigService.showsearch">
+  <form class="form-inline" #searchForm="ngForm" (ngSubmit)="onSearch()">
+    <div class="input-group w-100">
+      <input type="text" class="form-control" name="search" placeholder="" [(ngModel)]="query">
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-primary">{{appConfigService.getText("SEARCH")}}</button>
+      </div>
+    </div>
+
+  </form>
+  <br />
+</div>
+<div *ngIf="result">
+  <ul class="list-group">
+    <li (click)="onClicked(contact)" [class.active]="contact.id==current?.id" class="list-group-item" *ngFor="let contact of result.contacts"><span class="badge badge-primary  ">{{contact.label}}</span> {{contact.fullName}}</li>
+    <li class="list-group-item">{{appConfigService.getText("TOTALRESULTS")}}: {{result.totalCount}}</li>
+    <li class="list-group-item">
+      <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item" [class.active]="page==currentPage" *ngFor="let page of result.pages" (click)="onSearch(page)"><a href="#" class="page-link">{{page}} </a></li>
+        </ul>
+      </nav>
+    </li>
+  </ul>
+
+
+</div>

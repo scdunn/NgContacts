@@ -1,0 +1,11 @@
+  <div class="row">
+  <div class="col-md-4">
+    <cid-contact-list (contactClicked)="contactClicked($event)"></cid-contact-list>
+  </div>
+
+  <div class="col-md-8">
+    <div class="panel">
+      <cid-contact-edit [contact]="current"></cid-contact-edit>
+    </div>
+  </div>
+</div>

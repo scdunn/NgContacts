@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "apiEndpointContacts": "/api/contacts/",
+  "showsearch": true,
+  "languages": {
+    "en": {
+      "SEARCH": "Search",
+      "CHOOSECONTACT": "Please choose a contact.",
+      "EDIT": "Edit",
+      "CANCEL": "Cancel",
+      "SUBMIT": "Submit",
+      "CONTACTSAVED": "Contact has been saved.",
+      "TOTALRESULTS":"Total Results",
+      "FIRSTNAME": "First Name",
+      "LASTNAME": "Last Name",
+      "EMAIL": "E-mail Address",
+      "PHONE": "Phone",
+      "COMPANY": "Company",
+      "JOBTITLE": "Job Title",
+      "STREET": "Street",
+      "CITY": "City",
+      "STATE": "State",
+      "ZIPCODE": "ZipCode",
+      "INVALID_REQUIRED": "This field is required."
+    },
+    "es": {
+      "SEARCH": "Buscar",
+      "CHOOSECONTACT": "Por favor elija Contacto",
+      "EDIT": "Editar",
+      "CANCEL": "Cancelar",
+      "SUBMIT": "Enviar",
+      "CONTACTSAVED": "Se ha guardado el contacto.",
+      "TOTALRESULTS": "Resultados totales",
+      "FIRSTNAME": "Primer Nombre",
+      "LASTNAME": "Apellido",
+      "EMAIL": "E-mail",
+      "PHONE": "Teléfono",
+      "COMPANY": "Empresa",
+      "JOBTITLE": "Título profesional",
+      "STREET": "Calle",
+      "CITY": "Ciudad",
+      "STATE": "Estado",
+      "ZIPCODE": "Código postal",
+      "INVALID_REQUIRED": "Este campo es requerido."
+    }
+  }
+}
